@@ -1,0 +1,117 @@
+#target
+{
+    background-color:lightblue;
+    height:89%;
+    padding: 20px;
+}
+
+body
+{
+    background-color:lightblue;
+}
+
+img.poster
+{
+    content: url('../images/poster.jpg');
+    margin-bottom: 0.5rem;
+}
+
+img.loading
+{
+  content: url('../images/Loading.gif');
+}
+
+.card
+{
+    width: 16rem; 
+    height: 23rem;
+}
+
+.card-body
+{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.latest-movies-label
+{
+    text-align: center;
+    font-size: xx-large;
+    margin: 1rem;
+    text-shadow: 2px 2px #FFF;
+}
+
+.bg {
+    margin-top: 1.5rem;
+    display: block;
+    background-size: cover;
+    position: relative;
+  }
+
+  input[type="text"] {
+    border: none;
+    position: relative;
+    display: block;
+    outline: none;
+    height: 40px;
+    margin: 0 auto;
+    padding: 10px;
+    color: #333;
+    -webkit-box-shadow: 0 2px 2px 1px #000;
+    box-shadow: 0 2px 2px 1px #000;
+    border-radius: 5px;
+  }
+  ::-webkit-input-placeholder { color: #666;} 
+  :-moz-placeholder { color: #666; }
+  ::-moz-placeholder { color: #666; }
+  :-ms-input-placeholder { color: #666; }
+
+  input[type="text"]:hover {
+    border: none;
+    outline: none;
+    -webkit-box-shadow: 0 1px 2px 1px #000;
+    box-shadow: 0 1px 2px 1px #000;
+  }
+
+  .card-title, .card-text
+  {     
+    width: auto;     
+    text-overflow: ellipsis;
+  }
+
+  .card-title
+  {
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .card-text
+  {
+      height: 100px;
+      margin-bottom: 0.5rem;
+      overflow-x: hidden;
+  }
+
+  .card-text::-webkit-scrollbar {
+    display: none;
+}
+
+div.card-margin
+{
+  margin-bottom: 10px;
+}
+
+p.field-title
+{
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  margin: 5px 0;
+}
+
+.jumbotron 
+{
+  padding: 2rem;
+}
