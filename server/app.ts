@@ -11,7 +11,7 @@ import cookieParser from 'cookie-parser'
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port: number = parseInt(String(process.env.PORT)) || 3000;
 
 app.use(morgan('dev'));
 
@@ -56,8 +56,8 @@ conn.on('error', console.error.bind(console, 'Connection error'))
 
 conn.once('open', () => {
     console.log('Connected to mongoDB')
-    console.log(String(process.env.MFLIX_DB_URI))
 
+    //main routes
     app.use("/api", api);
     app.use("/", homeRouter);
     app.use("*", (_req, res) => res.status(404).json({ error: "Not Found" }))

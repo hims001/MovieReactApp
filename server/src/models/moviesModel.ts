@@ -1,14 +1,15 @@
 import mongoose from "mongoose"
+import { IMovie } from "../../../common/interfaces"
 
 const moviesSchema = new mongoose.Schema({
   title: {type: String},
   plot: {type: String}
 })
 
-const moviesModel = mongoose.model('Movie', moviesSchema, 'movies')
+const moviesModel = mongoose.model<IMovie>('Movie', moviesSchema, 'movies')
 
 const fetchData = (callback: Function, keyword = undefined) => {
-    let query = {}, limit=4
+    let query = {}, limit = 4
     if (keyword !== undefined)
     {
       query = { title: { "$regex": keyword, "$options": "i" }  }

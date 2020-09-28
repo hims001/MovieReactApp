@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const fs = require("fs");
 //const nodeExternals = require('webpack-node-externals');
-const nav = require('./misc/nav')
+//const nav = require('./common/nav')
 
 const multipleHTMLFiles = () => {
     let arrHtmlPlugins = [];
@@ -39,7 +39,7 @@ module.exports = {
     module: {
         rules: [
               {
-                test: /\.tsx$/,
+                test: /\.(ts|tsx)$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',

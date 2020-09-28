@@ -1,6 +1,12 @@
 import React from 'react'
+import { IMovieDetail } from '../../common/interfaces'
 
-const MovieDetails = (props: any) => {
+interface IProps
+{
+    detail: IMovieDetail
+}
+
+const MovieDetails = (props: IProps): JSX.Element => {
     return (
         <div className="jumbotron jumbotron-fluid">
             <div className="container">

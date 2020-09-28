@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"
 
-const NavBar = () => {
+const NavBar = (): JSX.Element => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link className="navbar-brand" to="/index">

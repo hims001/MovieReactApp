@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react"
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import MovieDetails from "../components/MovieDetails";
+import { IDetailAppState, IMovieDetail } from "../../common/interfaces"
+import { fetchGet }  from "../../common/fetchAPI"
 
-const DetailsPage = (props: any) => {
-    const [appState, setAppState] = useState({
+const DetailsPage = (props: { match: any }): JSX.Element => {
+    const [appState, setAppState] = useState<IDetailAppState>({
         isLoading: true,
-        movieData: null
+        movieData: {}
       });
       
       useEffect(() => {
-        setAppState({ isLoading: true, movieData: null });
-        const apiUrl = `http://localhost:4000/api/getMovieDetailsById/${props.match.params.id}`;
-        fetch(apiUrl)
-          .then((res) => res.json())
-          .then((data) => {
-              setTimeout(() => {
-                setAppState({ isLoading: false, movieData: data });
-              }, 1000);            
-          })
-          .catch((err) => { throw err });
+        setAppState({ isLoading: true, movieData: {} });
+        const apiUrl = `/api/getMovieDetailsById/${props.match.params.id}`;
+        fetchGet(apiUrl)
+        .then((data) => {
+            setTimeout(() => {
+            setAppState({ isLoading: false, movieData: data as IMovieDetail });
+            }, 1000);            
+        })
       }, [setAppState]);
       
     return (

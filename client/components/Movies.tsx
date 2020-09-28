@@ -1,7 +1,13 @@
 import React from "react";
 import '../../build/css/style.css'
+import { IMovie } from "../../common/interfaces";
 
-const Movies = (props: any) => {
+interface IProps
+{
+    moviesList: IMovie[]
+}
+
+const Movies = (props: IProps): JSX.Element => {
     return (
         <>
         {   props.moviesList.length == 0 ? <h2>Aww...This film yet to be created</h2> :

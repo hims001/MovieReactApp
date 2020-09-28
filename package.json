@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Movies searching portal",
   "main": "app.ts",
+  "proxy": "http://localhost:4000/",
   "scripts": {
     "build": "webpack -w",
     "start": "nodemon --exec ts-node server/app.ts"

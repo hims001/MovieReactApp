@@ -1,30 +1,29 @@
 import React, { useState } from "react"
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import Movies from "../components/Movies";
+import { ISearchAppState, IMovie } from "../../common/interfaces"
+import { fetchPost }  from "../../common/fetchAPI"
 
-const SearchPage = () => {
+const SearchPage = (): JSX.Element => {
     const [keyword, setKeyword] = useState("");
 
-    const [appState, setAppState] = useState({
+    const [appState, setAppState] = useState<ISearchAppState>({
         isKeywordTyped: false,
         isLoading: false,
-        moviesData: null
+        moviesData: []
       });
       
       const onSubmit = (e: any) => {  
         e.preventDefault() 
         let isKeywordTyped = (keyword !== undefined)
-        setAppState({ isKeywordTyped: isKeywordTyped, isLoading: true, moviesData: null });        
-        const apiUrl = `http://localhost:4000/api/findMovies`;                
-        fetch(apiUrl, {
-            method: 'post',
-            headers:{'content-type': 'application/json'},
-            body: JSON.stringify({keyword: keyword})
-          })
-          .then((res) => res.json())
+        setAppState({ isKeywordTyped: isKeywordTyped, isLoading: true, moviesData: [] });                
+        fetchPost("/api/findMovies", {keyword: keyword})
           .then((data) => {
               setTimeout(() => {
-                setAppState({ isKeywordTyped: isKeywordTyped, isLoading: false, moviesData: data });                
+                setAppState({ 
+                    isKeywordTyped: isKeywordTyped, 
+                    isLoading: false, 
+                    moviesData: data as IMovie[] });                
               }, 1000);                        
           })
           .catch((err) => { throw err });
